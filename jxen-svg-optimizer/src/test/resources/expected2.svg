@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="stroke:gold;stroke-width:2" width="800" height="800" version="1.1">
+<path style="fill-opacity:0.5" d="m200,200 a100,50 45 0 1 100,-100 z"/>
+<path style="fill:blue;fill-opacity:0.5;stroke:none" d="m200,200 a100,50 45 0 1 100,-100 z"/>
+<polygon style="stroke-width:1" points="50,50 150,150 10,200"/>
+<rect style="fill:#828282;stroke-width:0.25" x="-12" y="-48" width="25" height="75"/>
+</svg>
