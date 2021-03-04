@@ -4,6 +4,7 @@ import com.github.jxen.svg.model.Circle;
 import com.github.jxen.svg.model.Defs;
 import com.github.jxen.svg.model.Desc;
 import com.github.jxen.svg.model.Element;
+import com.github.jxen.svg.model.Ellipse;
 import com.github.jxen.svg.model.G;
 import com.github.jxen.svg.model.Line;
 import com.github.jxen.svg.model.Metadata;
@@ -43,6 +44,13 @@ public interface SvgVisitor {
 	 */
 	default void visit(Desc desc) {
 		process(desc);
+	}
+
+	/**
+	 * @param ellipse ellipse
+	 */
+	default void visit(Ellipse ellipse) {
+		process(ellipse);
 	}
 
 	/**

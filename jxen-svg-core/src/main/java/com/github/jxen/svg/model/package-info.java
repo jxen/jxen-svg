@@ -2,6 +2,7 @@
 		Circle.class,
 		Defs.class,
 		Desc.class,
+		Ellipse.class,
 		G.class,
 		Line.class,
 		Metadata.class,

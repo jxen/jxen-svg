@@ -3,6 +3,7 @@ package com.github.jxen.svg.optimizer;
 import com.github.jxen.svg.api.SvgVisitor;
 import com.github.jxen.svg.model.Circle;
 import com.github.jxen.svg.model.Element;
+import com.github.jxen.svg.model.Ellipse;
 import com.github.jxen.svg.model.Line;
 import com.github.jxen.svg.model.Path;
 import com.github.jxen.svg.model.Polygon;
@@ -15,6 +16,7 @@ import java.util.List;
 class TransformVisitor implements SvgVisitor {
 
 	private final CircleTransformApplier circleTransformApplier = new CircleTransformApplier();
+	private final EllipseTransformApplier ellipseTransformApplier = new EllipseTransformApplier();
 	private final LineTransformApplier lineTransformApplier = new LineTransformApplier();
 	private final PathTransformApplier pathTransformApplier = new PathTransformApplier();
 	private final PolygonTransformApplier poligonTransformApplier = new PolygonTransformApplier();
@@ -24,6 +26,11 @@ class TransformVisitor implements SvgVisitor {
 	@Override
 	public void visit(Circle circle) {
 		circleTransformApplier.apply(circle);
+	}
+
+	@Override
+	public void visit(Ellipse ellipse) {
+		ellipseTransformApplier.apply(ellipse);
 	}
 
 	@Override
