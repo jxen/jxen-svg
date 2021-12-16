@@ -25,103 +25,129 @@ import com.github.jxen.svg.model.Use;
  */
 public interface SvgVisitor {
 
-	/**
-	 * @param circle circle
-	 */
-	default void visit(Circle circle) {
-		process(circle);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param circle circle
+   */
+  default void visit(Circle circle) {
+    process(circle);
+  }
 
-	/**
-	 * @param defs defs
-	 */
-	default void visit(Defs defs) {
-		process(defs);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param defs defs
+   */
+  default void visit(Defs defs) {
+    process(defs);
+  }
 
-	/**
-	 * @param desc desc
-	 */
-	default void visit(Desc desc) {
-		process(desc);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param desc desc
+   */
+  default void visit(Desc desc) {
+    process(desc);
+  }
 
-	/**
-	 * @param ellipse ellipse
-	 */
-	default void visit(Ellipse ellipse) {
-		process(ellipse);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param ellipse ellipse
+   */
+  default void visit(Ellipse ellipse) {
+    process(ellipse);
+  }
 
-	/**
-	 * @param g g
-	 */
-	default void visit(G g) {
-		process(g);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param g g
+   */
+  default void visit(G g) {
+    process(g);
+  }
 
-	/**
-	 * @param line line
-	 */
-	default void visit(Line line) {
-		process(line);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param line line
+   */
+  default void visit(Line line) {
+    process(line);
+  }
 
-	/**
-	 * @param metadata metadata
-	 */
-	default void visit(Metadata metadata) {
-		process(metadata);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param metadata metadata
+   */
+  default void visit(Metadata metadata) {
+    process(metadata);
+  }
 
-	/**
-	 * @param path path
-	 */
-	default void visit(Path path) {
-		process(path);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param path path
+   */
+  default void visit(Path path) {
+    process(path);
+  }
 
-	/**
-	 * @param polygon polygon
-	 */
-	default void visit(Polygon polygon) {
-		process(polygon);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param polygon polygon
+   */
+  default void visit(Polygon polygon) {
+    process(polygon);
+  }
 
-	/**
-	 * @param rect rect
-	 */
-	default void visit(Rect rect) {
-		process(rect);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param rect rect
+   */
+  default void visit(Rect rect) {
+    process(rect);
+  }
 
-	/**
-	 * @param svg svg
-	 */
-	default void visit(Svg svg) {
-		process(svg);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param svg svg
+   */
+  default void visit(Svg svg) {
+    process(svg);
+  }
 
-	/**
-	 * @param title title
-	 */
-	default void visit(Title title) {
-		process(title);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param title title
+   */
+  default void visit(Title title) {
+    process(title);
+  }
 
-	/**
-	 * @param use use
-	 */
-	default void visit(Use use) {
-		process(use);
-	}
+  /**
+   * Visits the element.
+   *
+   * @param use use
+   */
+  default void visit(Use use) {
+    process(use);
+  }
 
-	/**
-	 * Default processing of element.
-	 *
-	 * @param element element to be processed
-	 */
-	default void process(Element<?> element) {
-		element.stream().forEach(e -> e.accept(this));
-	}
+  /**
+   * Default processing of element.
+   *
+   * @param element element to be processed
+   */
+  default void process(Element<?> element) {
+    element.stream().forEach(e -> e.accept(this));
+  }
 }

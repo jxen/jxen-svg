@@ -12,18 +12,18 @@ import com.github.jxen.svg.style.Style;
  * @since SVG Core 0.1
  */
 @Tag("desc")
-public class Desc extends Element<Desc> {
+public final class Desc extends Element<Desc> {
 
-	/**
-	 * Initializes element.
-	 */
-	public Desc() {
-		super(Desc.class);
-		setStyle(Style.getDefault());
-	}
+  /**
+   * Initializes element.
+   */
+  public Desc() {
+    super(Desc.class);
+    setStyle(Style.getDefault());
+  }
 
-	@Override
-	public void accept(SvgVisitor t) {
-		t.visit(this);
-	}
+  @Override
+  public void accept(SvgVisitor t) {
+    t.visit(this);
+  }
 }

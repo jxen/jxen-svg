@@ -15,34 +15,38 @@ import java.util.List;
  * @since SVG Core 0.1
  */
 @Tag("polygon")
-public class Polygon extends Element<Polygon> {
+public final class Polygon extends Element<Polygon> {
 
-	@Attr(name = "points", type = ValueType.POLYGON)
-	private List<Point> points;
+  @Attr(name = "points", type = ValueType.POLYGON)
+  private List<Point> points;
 
-	/**
-	 * Initializes element.
-	 */
-	public Polygon() {
-		super(Polygon.class);
-	}
+  /**
+   * Initializes element.
+   */
+  public Polygon() {
+    super(Polygon.class);
+  }
 
-	/**
-	 * @return the points
-	 */
-	public List<Point> getPoints() {
-		return points;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the points
+   */
+  public List<Point> getPoints() {
+    return points;
+  }
 
-	/**
-	 * @param points the points to set
-	 */
-	public void setPoints(List<Point> points) {
-		this.points = points;
-	}
+  /**
+   * Sets the value.
+   *
+   * @param points the points to set
+   */
+  public void setPoints(List<Point> points) {
+    this.points = points;
+  }
 
-	@Override
-	public void accept(SvgVisitor t) {
-		t.visit(this);
-	}
+  @Override
+  public void accept(SvgVisitor t) {
+    t.visit(this);
+  }
 }

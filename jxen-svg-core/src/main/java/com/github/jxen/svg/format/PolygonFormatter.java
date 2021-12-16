@@ -13,19 +13,21 @@ import java.util.stream.Collectors;
  */
 public class PolygonFormatter implements Formatter {
 
-	private final String format;
+  private final String format;
 
-	/**
-	 * @param format numeric format
-	 */
-	public PolygonFormatter(String format) {
-		this.format = format;
-	}
+  /**
+   * Initializes with given value.
+   *
+   * @param format numeric format
+   */
+  public PolygonFormatter(String format) {
+    this.format = format;
+  }
 
-	@Override
-	public String format(Object value) {
-		@SuppressWarnings("unchecked")
-		List<Point> points = (List<Point>) value;
-		return points.stream().map(p -> p.format(format)).collect(Collectors.joining(" "));
-	}
+  @Override
+  public String format(Object value) {
+    @SuppressWarnings("unchecked")
+    List<Point> points = (List<Point>) value;
+    return points.stream().map(p -> p.format(format)).collect(Collectors.joining(" "));
+  }
 }

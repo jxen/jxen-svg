@@ -11,42 +11,44 @@ import com.github.jxen.svg.api.SvgException;
  */
 public enum Linejoin {
 
-	/**
-	 * Miter.
-	 */
-	MITER("miter"),
+  /**
+   * Miter.
+   */
+  MITER("miter"),
 
-	/**
-	 * Round.
-	 */
-	ROUND("round"),
+  /**
+   * Round.
+   */
+  ROUND("round"),
 
-	/**
-	 * Bevel.
-	 */
-	BEVEL("bevel");
+  /**
+   * Bevel.
+   */
+  BEVEL("bevel");
 
-	private final String name;
+  private final String name;
 
-	Linejoin(String name) {
-		this.name = name;
-	}
+  Linejoin(String name) {
+    this.name = name;
+  }
 
-	@Override
-	public String toString() {
-		return name;
-	}
+  @Override
+  public String toString() {
+    return name;
+  }
 
-	/**
-	 * @param value value
-	 * @return parsed object
-	 */
-	public static Linejoin parse(String value) {
-		for (Linejoin display : values()) {
-			if (display.name.equals(value)) {
-				return display;
-			}
-		}
-		throw new SvgException("Unsupported linejoin type");
-	}
+  /**
+   * Provides instance.
+   *
+   * @param value value
+   * @return parsed object
+   */
+  public static Linejoin parse(String value) {
+    for (Linejoin display : values()) {
+      if (display.name.equals(value)) {
+        return display;
+      }
+    }
+    throw new SvgException("Unsupported linejoin type");
+  }
 }

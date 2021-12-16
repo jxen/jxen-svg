@@ -15,34 +15,38 @@ import java.util.List;
  * @since SVG Core 0.1
  */
 @Tag("path")
-public class Path extends Element<Path> {
+public final class Path extends Element<Path> {
 
-	@Attr(name = "d", type = ValueType.PATH)
-	private List<PathSeg> d;
+  @Attr(name = "d", type = ValueType.PATH)
+  private List<PathSeg> d;
 
-	/**
-	 * Initializes element.
-	 */
-	public Path() {
-		super(Path.class);
-	}
+  /**
+   * Initializes element.
+   */
+  public Path() {
+    super(Path.class);
+  }
 
-	/**
-	 * @return the d
-	 */
-	public List<PathSeg> getD() {
-		return d;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the d
+   */
+  public List<PathSeg> getD() {
+    return d;
+  }
 
-	/**
-	 * @param d the d to set
-	 */
-	public void setD(List<PathSeg> d) {
-		this.d = d;
-	}
+  /**
+   * Sets the value.
+   *
+   * @param d the d to set
+   */
+  public void setD(List<PathSeg> d) {
+    this.d = d;
+  }
 
-	@Override
-	public void accept(SvgVisitor t) {
-		t.visit(this);
-	}
+  @Override
+  public void accept(SvgVisitor t) {
+    t.visit(this);
+  }
 }

@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Test;
 
 class DisplayTest {
 
-	@Test
-	void testParse() {
-		assertEquals(Display.INLINE, Display.parse("inline"));
-	}
+  @Test
+  void testParse() {
+    assertEquals(Display.INLINE, Display.parse("inline"));
+  }
 
-	@Test
-	void testParseFailure() {
-		assertThrows(SvgException.class, () -> Display.parse("error"));
-	}
+  @Test
+  void testParseFailure() {
+    assertThrows(SvgException.class, () -> Display.parse("error"));
+  }
 }

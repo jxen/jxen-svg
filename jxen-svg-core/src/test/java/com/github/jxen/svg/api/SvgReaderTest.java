@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Test;
 
 class SvgReaderTest {
 
-	@Test
-	void testRead() {
-		SvgReader reader = new SvgReader();
-		Element<?> element = reader.read(getClass().getResourceAsStream("/test.svg"));
-		assertTrue(element instanceof Svg);
-	}
+  @Test
+  void testRead() {
+    SvgReader reader = new SvgReader();
+    Element<?> element = reader.read(getClass().getResourceAsStream("/test.svg"));
+    assertTrue(element instanceof Svg);
+  }
 }

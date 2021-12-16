@@ -11,17 +11,17 @@ import com.github.jxen.svg.api.SvgVisitor;
  * @since SVG Core 0.1
  */
 @Tag("defs")
-public class Defs extends Element<Defs> {
+public final class Defs extends Element<Defs> {
 
-	/**
-	 * Initializes element.
-	 */
-	public Defs() {
-		super(Defs.class);
-	}
+  /**
+   * Initializes element.
+   */
+  public Defs() {
+    super(Defs.class);
+  }
 
-	@Override
-	public void accept(SvgVisitor t) {
-		t.visit(this);
-	}
+  @Override
+  public void accept(SvgVisitor t) {
+    t.visit(this);
+  }
 }

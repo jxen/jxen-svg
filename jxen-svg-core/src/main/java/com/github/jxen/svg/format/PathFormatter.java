@@ -13,19 +13,19 @@ import java.util.List;
  */
 public class PathFormatter implements Formatter {
 
-	@Override
-	public String format(Object value) {
-		@SuppressWarnings("unchecked")
-		List<PathSeg> segments = (List<PathSeg>) value;
-		StringBuilder builder = new StringBuilder();
-		PathSegType type = null;
-		for (PathSeg step : segments) {
-			if (type != null) {
-				builder.append(' ');
-			}
-			builder.append(step.getType().toString(step, type));
-			type = step.getType();
-		}
-		return builder.toString();
-	}
+  @Override
+  public String format(Object value) {
+    @SuppressWarnings("unchecked")
+    List<PathSeg> segments = (List<PathSeg>) value;
+    StringBuilder builder = new StringBuilder();
+    PathSegType type = null;
+    for (PathSeg step : segments) {
+      if (type != null) {
+        builder.append(' ');
+      }
+      builder.append(step.getType().toString(step, type));
+      type = step.getType();
+    }
+    return builder.toString();
+  }
 }

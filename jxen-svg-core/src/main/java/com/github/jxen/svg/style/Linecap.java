@@ -11,42 +11,44 @@ import com.github.jxen.svg.api.SvgException;
  */
 public enum Linecap {
 
-	/**
-	 * Butt.
-	 */
-	BUTT("butt"),
+  /**
+   * Butt.
+   */
+  BUTT("butt"),
 
-	/**
-	 * Round.
-	 */
-	ROUND("round"),
+  /**
+   * Round.
+   */
+  ROUND("round"),
 
-	/**
-	 * Square.
-	 */
-	SQUARE("square");
+  /**
+   * Square.
+   */
+  SQUARE("square");
 
-	private final String name;
+  private final String name;
 
-	Linecap(String name) {
-		this.name = name;
-	}
+  Linecap(String name) {
+    this.name = name;
+  }
 
-	@Override
-	public String toString() {
-		return name;
-	}
+  @Override
+  public String toString() {
+    return name;
+  }
 
-	/**
-	 * @param value value
-	 * @return parsed object
-	 */
-	public static Linecap parse(String value) {
-		for (Linecap display : values()) {
-			if (display.name.equals(value)) {
-				return display;
-			}
-		}
-		throw new SvgException("Unsupported linecap type");
-	}
+  /**
+   * Provides instance.
+   *
+   * @param value value
+   * @return parsed object
+   */
+  public static Linecap parse(String value) {
+    for (Linecap display : values()) {
+      if (display.name.equals(value)) {
+        return display;
+      }
+    }
+    throw new SvgException("Unsupported linecap type");
+  }
 }

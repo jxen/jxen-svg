@@ -9,16 +9,16 @@ package com.github.jxen.svg.annotation;
  */
 public final class SvgNamespaces {
 
-	/**
-	 * SVG namespace.
-	 */
-	public static final String SVG_NAMESPACE = "http://www.w3.org/2000/svg";
+  /**
+   * SVG namespace.
+   */
+  public static final String SVG_NAMESPACE = "http://www.w3.org/2000/svg";
 
-	/**
-	 * XLink namespace.
-	 */
-	public static final String XLINK_NAMESPACE = "http://www.w3.org/1999/xlink";
+  /**
+   * XLink namespace.
+   */
+  public static final String XLINK_NAMESPACE = "http://www.w3.org/1999/xlink";
 
-	private SvgNamespaces() {
-	}
+  private SvgNamespaces() {
+  }
 }

@@ -17,18 +17,24 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Attr {
 
-	/**
-	 * @return attribute name
-	 */
-	String name();
+  /**
+   * Provides attribute name.
+   *
+   * @return attribute name
+   */
+  String name();
 
-	/**
-	 * @return attribute namespace
-	 */
-	String namespace() default SvgNamespaces.SVG_NAMESPACE;
+  /**
+   * Provides attribute namespace.
+   *
+   * @return attribute namespace
+   */
+  String namespace() default SvgNamespaces.SVG_NAMESPACE;
 
-	/**
-	 * @return attribute type
-	 */
-	ValueType type();
+  /**
+   * Provides attribute type.
+   *
+   * @return attribute type
+   */
+  ValueType type();
 }

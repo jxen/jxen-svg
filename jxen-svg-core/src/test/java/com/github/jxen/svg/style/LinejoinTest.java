@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Test;
 
 class LinejoinTest {
 
-	@Test
-	void testParse() {
-		assertEquals(Linejoin.ROUND, Linejoin.parse("round"));
-	}
+  @Test
+  void testParse() {
+    assertEquals(Linejoin.ROUND, Linejoin.parse("round"));
+  }
 
-	@Test
-	void testParseFailure() {
-		assertThrows(SvgException.class, () -> Linejoin.parse("error"));
-	}
+  @Test
+  void testParseFailure() {
+    assertThrows(SvgException.class, () -> Linejoin.parse("error"));
+  }
 }

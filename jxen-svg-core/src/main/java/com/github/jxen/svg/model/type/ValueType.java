@@ -21,80 +21,82 @@ import com.github.jxen.svg.parser.ViewBoxParser;
  */
 public enum ValueType {
 
-	/**
-	 * Style.
-	 */
-	STYLE(new StyleParser(), Object::toString),
+  /**
+   * Style.
+   */
+  STYLE(Constants.STYLE_PARSER, Object::toString),
 
-	/**
-	 * Transform.
-	 */
-	TRANSFORM(new TransformParser(), new TransformFormatter()),
+  /**
+   * Transform.
+   */
+  TRANSFORM(Constants.TRANSFORM_PARSER, new TransformFormatter()),
 
-	/**
-	 * String.
-	 */
-	STRING(String::trim, String::valueOf),
+  /**
+   * String.
+   */
+  STRING(String::trim, String::valueOf),
 
-	/**
-	 * Number.
-	 */
-	NUMBER(Double::parseDouble,
-			v -> new FormatHelper(Constants.DEFAULT_FORMAT).add((Double) v, new StringBuilder()).toString()),
+  /**
+   * Number.
+   */
+  NUMBER(Double::parseDouble,
+      v -> new FormatHelper(Constants.DEFAULT_FORMAT).add((Double) v, new StringBuilder()).toString()),
 
-	/**
-	 * Length.
-	 */
-	LENGTH(Length::parse, v -> ((Length) v).format("#.###")),
+  /**
+   * Length.
+   */
+  LENGTH(Length::parse, v -> ((Length) v).format("#.###")),
 
-	/**
-	 * Path.
-	 */
-	PATH(new PathParser(), new PathFormatter()),
+  /**
+   * Path.
+   */
+  PATH(Constants.PATH_PARSER, new PathFormatter()),
 
-	/**
-	 * Polygon.
-	 */
-	POLYGON(new PolygonParser(), new PolygonFormatter(Constants.DEFAULT_FORMAT)),
+  /**
+   * Polygon.
+   */
+  POLYGON(Constants.POLYGON_PARSER, new PolygonFormatter(Constants.DEFAULT_FORMAT)),
 
-	/**
-	 * View box.
-	 */
-	VIEW_BOX(new ViewBoxParser(), v -> ((ViewBox) v).format(Constants.DEFAULT_FORMAT));
+  /**
+   * View box.
+   */
+  VIEW_BOX(Constants.VIEWBOX_PARSER, v -> ((ViewBox) v).format(Constants.DEFAULT_FORMAT));
 
-	private final Parser<?> parser;
-	private final Formatter formatter;
+  private final Parser<?> parser;
+  private final Formatter formatter;
 
-	ValueType(Parser<?> parser, Formatter formatter) {
-		this.parser = parser;
-		this.formatter = formatter;
-	}
+  ValueType(Parser<?> parser, Formatter formatter) {
+    this.parser = parser;
+    this.formatter = formatter;
+  }
 
-	ValueType(Parser<?> parser) {
-		this(parser, null);
-	}
+  /**
+   * Parses givan value.
+   *
+   * @param value value
+   * @return parsed object
+   */
+  public Object parse(String value) {
+    return parser.parse(value);
+  }
 
-	/**
-	 * Parses givan value.
-	 *
-	 * @param value value
-	 * @return parsed object
-	 */
-	public Object parse(String value) {
-		return parser.parse(value);
-	}
+  /**
+   * Formats given object.
+   *
+   * @param value value
+   * @return formatted object
+   */
+  public String format(Object value) {
+    return formatter.format(value);
+  }
 
-	/**
-	 * Formats given object.
-	 *
-	 * @param value value
-	 * @return formatted object
-	 */
-	public String format(Object value) {
-		return formatter.format(value);
-	}
+  private static class Constants {
+    private static final String DEFAULT_FORMAT = "#.##";
 
-	private static class Constants {
-		private static final String DEFAULT_FORMAT = "#.##";
-	}
+    private static final Parser<?> PATH_PARSER = new PathParser();
+    private static final Parser<?> POLYGON_PARSER = new PolygonParser();
+    private static final Parser<?> STYLE_PARSER = new StyleParser();
+    private static final Parser<?> TRANSFORM_PARSER = new TransformParser();
+    private static final Parser<?> VIEWBOX_PARSER = new ViewBoxParser();
+  }
 }

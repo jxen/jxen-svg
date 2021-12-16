@@ -14,68 +14,80 @@ import com.github.jxen.svg.model.type.ValueType;
  * @since SVG Core 0.1
  */
 @Tag("circle")
-public class Circle extends Element<Circle> {
+public final class Circle extends Element<Circle> {
 
-	@Attr(name = "r", type = ValueType.LENGTH)
-	private Length r;
+  @Attr(name = "r", type = ValueType.LENGTH)
+  private Length r;
 
-	@Attr(name = "cx", type = ValueType.LENGTH)
-	private Length cx;
+  @Attr(name = "cx", type = ValueType.LENGTH)
+  private Length cx;
 
-	@Attr(name = "cy", type = ValueType.LENGTH)
-	private Length cy;
+  @Attr(name = "cy", type = ValueType.LENGTH)
+  private Length cy;
 
-	/**
-	 * Initializes element.
-	 */
-	public Circle() {
-		super(Circle.class);
-	}
+  /**
+   * Initializes element.
+   */
+  public Circle() {
+    super(Circle.class);
+  }
 
-	/**
-	 * @return the r
-	 */
-	public Length getR() {
-		return r;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the r
+   */
+  public Length getR() {
+    return r;
+  }
 
-	/**
-	 * @param r the r to set
-	 */
-	public void setR(Length r) {
-		this.r = r;
-	}
+  /**
+   * Sets the value.
+   *
+   * @param r the r to set
+   */
+  public void setR(Length r) {
+    this.r = r;
+  }
 
-	/**
-	 * @return the cx
-	 */
-	public Length getCx() {
-		return cx;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the cx
+   */
+  public Length getCx() {
+    return cx;
+  }
 
-	/**
-	 * @param cx the cx to set
-	 */
-	public void setCx(Length cx) {
-		this.cx = cx;
-	}
+  /**
+   * Sets the value.
+   *
+   * @param cx the cx to set
+   */
+  public void setCx(Length cx) {
+    this.cx = cx;
+  }
 
-	/**
-	 * @return the cy
-	 */
-	public Length getCy() {
-		return cy;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the cy
+   */
+  public Length getCy() {
+    return cy;
+  }
 
-	/**
-	 * @param cy the cy to set
-	 */
-	public void setCy(Length cy) {
-		this.cy = cy;
-	}
+  /**
+   * Sets the value.
+   *
+   * @param cy the cy to set
+   */
+  public void setCy(Length cy) {
+    this.cy = cy;
+  }
 
-	@Override
-	public void accept(SvgVisitor t) {
-		t.visit(this);
-	}
+  @Override
+  public void accept(SvgVisitor t) {
+    t.visit(this);
+  }
 }

@@ -16,8 +16,10 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Elements {
 
-	/**
-	 * @return tags of supported elements
-	 */
-	Class<?>[] value();
+  /**
+   * Provides value.
+   *
+   * @return tags of supported elements
+   */
+  Class<?>[] value();
 }

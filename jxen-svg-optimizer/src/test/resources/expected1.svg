@@ -1,8 +1,7 @@
 <?xml version="1.0" ?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="134.375mm" height="159.875mm" viewBox="0 0 134.4 159.9" version="1.0">
-<title style="color:none;display:inline;enable-background:none;fill:black;fill-opacity:1;fill-rule:nonzero;marker:none;marker-end:none;marker-mid:none;marker-start:none;opacity:1;overflow:auto;stroke:none;stroke-dasharray:none;stroke-dashoffset:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-width:1;visibility:visible"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="134.375mm" height="159.875mm" viewBox="0 0 134.4 159.9">
 <g style="stroke:black;stroke-width:0.25">
-<line x1="100" y1="200" x2="200" y2="100"/>
+<line x1="-20" y1="160" x2="80" y2="60"/>
 <path style="fill:#edc102" d="m33.13,6.25 0.51,-1.69 45.29,15.07 -0.53,1.73 z"/>
 <rect style="fill:#828282" transform="rotate(-73.97)skewX(-3.46)" x="12.125" y="48.25" width="2.5" height="6.375" rx="1.25" ry="1.75"/>
 <circle style="fill:#82f182;opacity:0.5" transform="rotate(-37.48)skewX(-2.65)scale(1,1)" r="5" cx="50" cy="50"/>

@@ -14,79 +14,85 @@ import com.github.jxen.svg.transform.Transform;
  */
 public abstract class PathSeg {
 
-	private final PathSegType type;
-	private final Point endPoint;
+  private final PathSegType type;
+  private final Point endPoint;
 
-	/**
-	 * @param type     type
-	 * @param endPoint end point
-	 */
-	protected PathSeg(PathSegType type, Point endPoint) {
-		this.type = type;
-		this.endPoint = endPoint;
-	}
+  /**
+   * Initializes with given values.
+   *
+   * @param type     type
+   * @param endPoint end point
+   */
+  protected PathSeg(PathSegType type, Point endPoint) {
+    this.type = type;
+    this.endPoint = endPoint;
+  }
 
-	/**
-	 * @return the type
-	 */
-	public PathSegType getType() {
-		return type;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the type
+   */
+  public final PathSegType getType() {
+    return type;
+  }
 
-	/**
-	 * @return the endPoint
-	 */
-	public Point getEndPoint() {
-		return endPoint;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the endPoint
+   */
+  public final Point getEndPoint() {
+    return endPoint;
+  }
 
-	/**
-	 * Transforms path segment.
-	 *
-	 * @param transform transform
-	 * @param refOld    reference point at old coordinates
-	 * @param refNew    reference point at new coordinates
-	 * @return transformed path segment
-	 */
-	public abstract PathSeg transform(Transform transform, Point refOld, Point refNew);
+  /**
+   * Transforms path segment.
+   *
+   * @param transform transform
+   * @param refOld    reference point at old coordinates
+   * @param refNew    reference point at new coordinates
+   * @return transformed path segment
+   */
+  public abstract PathSeg transform(Transform transform, Point refOld, Point refNew);
 
-	/**
-	 * Converts to absolute coordinates system.
-	 *
-	 * @param ref reference point
-	 * @return segment in absolute coordinates
-	 */
-	public abstract PathSeg toAbs(Point ref);
+  /**
+   * Converts to absolute coordinates system.
+   *
+   * @param ref reference point
+   * @return segment in absolute coordinates
+   */
+  public abstract PathSeg toAbs(Point ref);
 
-	/**
-	 * Converts to relative coordinates system.
-	 *
-	 * @param ref reference point
-	 * @return segment in relative coordinates
-	 */
-	public abstract PathSeg toRel(Point ref);
+  /**
+   * Converts to relative coordinates system.
+   *
+   * @param ref reference point
+   * @return segment in relative coordinates
+   */
+  public abstract PathSeg toRel(Point ref);
 
-	@Override
-	public final String toString() {
-		return prepare(new StringBuilder(), new FormatHelper("#.##")).toString();
-	}
+  @Override
+  public final String toString() {
+    return prepare(new StringBuilder(), new FormatHelper("#.##")).toString();
+  }
 
-	/**
-	 * Prepares data to be converted to String.
-	 *
-	 * @param builder format builder to be prepared
-	 * @param helper  format helper to be used
-	 * @return {@link StringBuilder} instance
-	 */
-	protected abstract StringBuilder prepare(StringBuilder builder, FormatHelper helper);
+  /**
+   * Prepares data to be converted to String.
+   *
+   * @param builder format builder to be prepared
+   * @param helper  format helper to be used
+   * @return {@link StringBuilder} instance
+   */
+  protected abstract StringBuilder prepare(StringBuilder builder, FormatHelper helper);
 
-	boolean isRelative() {
-		return type.isRelative();
-	}
+  final boolean isRelative() {
+    return type.isRelative();
+  }
 
-	static void checkPoints(PathSegType type, Point point1, Point point2) {
-		if (!type.isRelative() && !point1.equals(point2)) {
-			throw new SvgException("Points should be equal");
-		}
-	}
+  static void checkPoints(PathSegType type, Point point1, Point point2) {
+    if (!type.isRelative() && !point1.equals(point2)) {
+      throw new SvgException("Points should be equal");
+    }
+  }
 }

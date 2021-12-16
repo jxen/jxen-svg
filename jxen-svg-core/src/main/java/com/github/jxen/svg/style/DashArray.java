@@ -15,40 +15,42 @@ import java.util.stream.Stream;
  */
 public final class DashArray implements Formattable {
 
-	static final DashArray DEFAULT = new DashArray(null);
+  static final DashArray DEFAULT = new DashArray(null);
 
-	private static final String NONE = "none";
+  private static final String NONE = "none";
 
-	private final List<Length> array;
+  private final List<Length> array;
 
-	private DashArray(List<Length> array) {
-		this.array = array;
-	}
+  private DashArray(List<Length> array) {
+    this.array = array;
+  }
 
-	/**
-	 * @param value value
-	 * @return parsed object
-	 */
-	public static DashArray parse(String value) {
-		if (value.isEmpty() || NONE.equals(value)) {
-			return DEFAULT;
-		}
-		String[] items = value.split("[\\s,]");
-		return new DashArray(Stream.of(items).filter(s -> !s.trim().isEmpty())
-				.map(Length::parse)
-				.collect(Collectors.toList()));
-	}
+  /**
+   * Provides instance.
+   *
+   * @param value value
+   * @return parsed object
+   */
+  public static DashArray parse(String value) {
+    if (value.isEmpty() || NONE.equals(value)) {
+      return DEFAULT;
+    }
+    String[] items = value.split("[\\s,]");
+    return new DashArray(Stream.of(items).filter(s -> !s.trim().isEmpty())
+        .map(Length::parse)
+        .collect(Collectors.toList()));
+  }
 
-	@Override
-	public String format(String format) {
-		if (array == null) {
-			return NONE;
-		}
-		return array.stream().map(e -> e.format(format)).collect(Collectors.joining(" "));
-	}
+  @Override
+  public String format(String format) {
+    if (array == null) {
+      return NONE;
+    }
+    return array.stream().map(e -> e.format(format)).collect(Collectors.joining(" "));
+  }
 
-	@Override
-	public String toString() {
-		return format("#.###");
-	}
+  @Override
+  public String toString() {
+    return format("#.###");
+  }
 }

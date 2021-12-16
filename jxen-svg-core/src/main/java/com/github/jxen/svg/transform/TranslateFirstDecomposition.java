@@ -11,35 +11,37 @@ import java.util.List;
  */
 public class TranslateFirstDecomposition extends TransformDecomposition {
 
-	private static final int TRANSLATE = 0;
-	private static final int SCALE = 1;
-	private static final int SKEW_X = 2;
-	private static final int ROTATE = 3;
+  private static final int TRANSLATE = 0;
+  private static final int SCALE = 1;
+  private static final int SKEW_X = 2;
+  private static final int ROTATE = 3;
 
-	/**
-	 * @param transforms transforms
-	 */
-	public TranslateFirstDecomposition(List<Transform> transforms) {
-		super(transforms);
-	}
+  /**
+   * Initializes with given values.
+   *
+   * @param transforms transforms
+   */
+  public TranslateFirstDecomposition(List<Transform> transforms) {
+    super(transforms);
+  }
 
-	@Override
-	int scaleIndex() {
-		return SCALE;
-	}
+  @Override
+  int scaleIndex() {
+    return SCALE;
+  }
 
-	@Override
-	int skewXIndex() {
-		return SKEW_X;
-	}
+  @Override
+  int skewXIndex() {
+    return SKEW_X;
+  }
 
-	@Override
-	int rotateIndex() {
-		return ROTATE;
-	}
+  @Override
+  int rotateIndex() {
+    return ROTATE;
+  }
 
-	@Override
-	int translateIndex() {
-		return TRANSLATE;
-	}
+  @Override
+  int translateIndex() {
+    return TRANSLATE;
+  }
 }

@@ -12,18 +12,18 @@ import com.github.jxen.svg.style.Style;
  * @since SVG Core 0.1
  */
 @Tag("title")
-public class Title extends Element<Title> {
+public final class Title extends Element<Title> {
 
-	/**
-	 * Initializes element.
-	 */
-	public Title() {
-		super(Title.class);
-		setStyle(Style.getDefault());
-	}
+  /**
+   * Initializes element.
+   */
+  public Title() {
+    super(Title.class);
+    setStyle(Style.getDefault());
+  }
 
-	@Override
-	public void accept(SvgVisitor t) {
-		t.visit(this);
-	}
+  @Override
+  public void accept(SvgVisitor t) {
+    t.visit(this);
+  }
 }

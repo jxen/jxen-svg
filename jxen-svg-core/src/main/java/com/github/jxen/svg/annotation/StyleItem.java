@@ -17,13 +17,17 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface StyleItem {
 
-	/**
-	 * @return style item name
-	 */
-	String name();
+  /**
+   * Provides name.
+   *
+   * @return style item name
+   */
+  String name();
 
-	/**
-	 * @return style item type
-	 */
-	StyleItemType type();
+  /**
+   * Provides type.
+   *
+   * @return style item type
+   */
+  StyleItemType type();
 }

@@ -6,20 +6,17 @@ import java.util.Set;
 
 class RemoveIdVisitor implements SvgVisitor {
 
-	private final Set<String> whiteList;
+  private final Set<String> whiteList;
 
-	/**
-	 * @param whiteList white list
-	 */
-	RemoveIdVisitor(Set<String> whiteList) {
-		this.whiteList = whiteList;
-	}
+  RemoveIdVisitor(Set<String> whiteList) {
+    this.whiteList = whiteList;
+  }
 
-	@Override
-	public void process(Element<?> element) {
-		if (!whiteList.contains(element.getId())) {
-			element.setId(null);
-		}
-		SvgVisitor.super.process(element);
-	}
+  @Override
+  public void process(Element<?> element) {
+    if (!whiteList.contains(element.getId())) {
+      element.setId(null);
+    }
+    SvgVisitor.super.process(element);
+  }
 }

@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Test;
 
 class OverflowTest {
 
-	@Test
-	void testParse() {
-		assertEquals(Overflow.AUTO, Overflow.parse("auto"));
-	}
+  @Test
+  void testParse() {
+    assertEquals(Overflow.AUTO, Overflow.parse("auto"));
+  }
 
-	@Test
-	void testParseFailure() {
-		assertThrows(SvgException.class, () -> Overflow.parse("error"));
-	}
+  @Test
+  void testParseFailure() {
+    assertThrows(SvgException.class, () -> Overflow.parse("error"));
+  }
 }

@@ -6,8 +6,8 @@ import java.util.Collections;
 
 class UseTransformApplier extends TransformApplier<Use> {
 
-	@Override
-	void transform(Use use, Transform transform) {
-		use.setTransform(Collections.singletonList(transform));
-	}
+  @Override
+  void transform(Use use, Transform transform) {
+    use.setTransform(Collections.singletonList(transform));
+  }
 }

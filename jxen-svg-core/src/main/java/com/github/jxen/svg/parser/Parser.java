@@ -12,11 +12,11 @@ package com.github.jxen.svg.parser;
 
 public interface Parser<T> {
 
-	/**
-	 * Parses given string value into object of given type.
-	 *
-	 * @param value value
-	 * @return parsed object
-	 */
-	T parse(String value);
+  /**
+   * Parses given string value into object of given type.
+   *
+   * @param value value
+   * @return parsed object
+   */
+  T parse(String value);
 }

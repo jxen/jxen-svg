@@ -1,82 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="134.4mm"
-   height="159.9mm"
-   viewBox="0 0 134.4 159.9"
-   version="1.0"
    id="svg4272"
-   sodipodi:docname="test1.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
-  <metadata
-     id="metadata4726">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <sodipodi:namedview
-     inkscape:window-height="1017"
-     inkscape:window-width="1920"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     guidetolerance="10.0"
-     gridtolerance="10.0"
-     objecttolerance="10.0"
-     borderopacity="1.0"
-     bordercolor="#666666"
-     pagecolor="#ffffff"
-     id="namedview4724"
-     inkscape:zoom="0.894851"
-     inkscape:cx="-106.03753"
-     inkscape:cy="283.28738"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:current-layer="svg4272"
-     showgrid="false"
-     inkscape:window-maximized="1" />
+   viewBox="0 0 134.4 159.9"
+   height="159.9mm"
+   width="134.4mm">
   <defs
      id="defs4274" />
   <g
-     id="g3328"
+     transform="matrix(0.79358824,-0.60845518,0.57105973,0.82090851,0,0)"
      style="stroke:#000000;stroke-width:0.25"
-     transform="matrix(0.79358824,-0.60845518,0.57105973,0.82090851,0,0)">
+     id="g3328">
     <line
-       x1="100"
-       y1="200"
-       x2="200"
-       y2="100"
-       id="line5" />
+       id="line5"
+       y2="60"
+       x2="80"
+       y1="160"
+       x1="-20" />
     <path
-       style="fill:#edc102"
+       id="path4345"
        d="m 23.653499,25.144144 1.387218,-1.031863 28.602636,39.554313 -1.421978,1.053481 z"
-       id="path4345" />
+       style="fill:#edc102" />
     <rect
-       style="fill:#828282;stroke-width:0.25393167"
-       id="rect4347"
-       width="2.5240417"
-       height="6.4112992"
-       x="12.090553"
-       y="48.274067"
-       ry="1.7261674"
+       transform="matrix(0.79358824,-0.60845518,0.57105973,0.82090851,0,0)"
        rx="1.2385035"
-       transform="matrix(0.79358824,-0.60845518,0.57105973,0.82090851,0,0)" />
+       ry="1.7261674"
+       y="48.274067"
+       x="12.090553"
+       height="6.4112992"
+       width="2.5240417"
+       id="rect4347"
+       style="fill:#828282;stroke-width:0.254" />
     <circle
-       cx="50"
-       cy="50"
-       r="5"
+       style="opacity:0.5;fill:#82f182;fill-opacity:1"
        id="circle10"
-       style="opacity:0.5;fill:#82f182;fill-opacity:1" />
+       r="5"
+       cy="50"
+       cx="50" />
   </g>
 </svg>

@@ -17,33 +17,33 @@ import org.junit.jupiter.api.TestFactory;
 
 class SvgOptimizerTest {
 
-	private final SvgReader reader = new SvgReader();
-	private final SvgWriter writer = new SvgWriter();
-	private final SvgOptimizer optimizer = new SvgOptimizer();
+  private final SvgReader reader = new SvgReader();
+  private final SvgWriter writer = new SvgWriter();
+  private final SvgOptimizer optimizer = new SvgOptimizer();
 
-	@TestFactory
-	DynamicTest[] testOptimize() {
-		return new DynamicTest[] {
-				testFile("test1", "expected1"),
-				testFile("test2", "expected2"),
-		};
-	}
+  @TestFactory
+  DynamicTest[] testOptimize() {
+    return new DynamicTest[] {
+        testFile("test1", "expected1"),
+        testFile("test2", "expected2"),
+    };
+  }
 
-	private DynamicTest testFile(String in, String out) {
-		return dynamicTest(in, () -> {
-			Element<?> element = reader.read(getInput(in));
-			optimizer.optimize(element);
-			ByteArrayOutputStream o = new ByteArrayOutputStream();
-			writer.write(element, o);
-			String actual = o.toString().trim();
-			String expected = new BufferedReader(new InputStreamReader(getInput(out)))
-					.lines()
-					.collect(Collectors.joining("\n"));
-			assertEquals(expected, actual);
-		});
-	}
+  private DynamicTest testFile(String in, String out) {
+    return dynamicTest(in, () -> {
+      Element<?> element = reader.read(getInput(in));
+      optimizer.optimize(element);
+      ByteArrayOutputStream o = new ByteArrayOutputStream();
+      writer.write(element, o);
+      String actual = o.toString().trim();
+      String expected = new BufferedReader(new InputStreamReader(getInput(out)))
+          .lines()
+          .collect(Collectors.joining("\n"));
+      assertEquals(expected, actual);
+    });
+  }
 
-	private InputStream getInput(String name) {
-		return SvgOptimizerTest.class.getResourceAsStream(String.format("/%s.svg", name));
-	}
+  private InputStream getInput(String name) {
+    return SvgOptimizerTest.class.getResourceAsStream(String.format("/%s.svg", name));
+  }
 }

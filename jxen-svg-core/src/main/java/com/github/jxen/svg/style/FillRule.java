@@ -11,37 +11,39 @@ import com.github.jxen.svg.api.SvgException;
  */
 public enum FillRule {
 
-	/**
-	 * Non zero.
-	 */
-	NONZERO("nonzero"),
+  /**
+   * Non zero.
+   */
+  NONZERO("nonzero"),
 
-	/**
-	 * Even odd.
-	 */
-	EVENODD("evenodd");
+  /**
+   * Even odd.
+   */
+  EVENODD("evenodd");
 
-	private final String name;
+  private final String name;
 
-	FillRule(String name) {
-		this.name = name;
-	}
+  FillRule(String name) {
+    this.name = name;
+  }
 
-	@Override
-	public String toString() {
-		return name;
-	}
+  @Override
+  public String toString() {
+    return name;
+  }
 
-	/**
-	 * @param value value
-	 * @return parsed object
-	 */
-	public static FillRule parse(String value) {
-		for (FillRule display : values()) {
-			if (display.name.equals(value)) {
-				return display;
-			}
-		}
-		throw new SvgException("Unsupported display type");
-	}
+  /**
+   * Provides instance.
+   *
+   * @param value value
+   * @return parsed object
+   */
+  public static FillRule parse(String value) {
+    for (FillRule display : values()) {
+      if (display.name.equals(value)) {
+        return display;
+      }
+    }
+    throw new SvgException("Unsupported display type");
+  }
 }

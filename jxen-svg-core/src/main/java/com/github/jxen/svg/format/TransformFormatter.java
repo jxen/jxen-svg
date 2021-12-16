@@ -13,14 +13,14 @@ import java.util.stream.Collectors;
  */
 public class TransformFormatter implements Formatter {
 
-	@Override
-	public String format(Object value) {
-		@SuppressWarnings("unchecked")
-		List<Transform> transforms = (List<Transform>) value;
-		return String.join("",
-			transforms.stream()
-				.filter(v -> !v.toMatrix().isIdentity())
-				.map(v -> String.valueOf(v))
-				.collect(Collectors.joining("", "", "")));
-	}
+  @Override
+  public String format(Object value) {
+    @SuppressWarnings("unchecked")
+    List<Transform> transforms = (List<Transform>) value;
+    return String.join("",
+        transforms.stream()
+            .filter(v -> !v.toMatrix().isIdentity())
+            .map(String::valueOf)
+            .collect(Collectors.joining("", "", "")));
+  }
 }

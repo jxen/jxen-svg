@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Test;
 
 class VisibilityTest {
 
-	@Test
-	void testParse() {
-		assertEquals(Visibility.VISIBLE, Visibility.parse("visible"));
-	}
+  @Test
+  void testParse() {
+    assertEquals(Visibility.VISIBLE, Visibility.parse("visible"));
+  }
 
-	@Test
-	void testParseFailure() {
-		assertThrows(SvgException.class, () -> Visibility.parse("error"));
-	}
+  @Test
+  void testParseFailure() {
+    assertThrows(SvgException.class, () -> Visibility.parse("error"));
+  }
 }

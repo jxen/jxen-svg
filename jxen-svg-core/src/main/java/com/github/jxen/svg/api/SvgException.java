@@ -9,27 +9,33 @@ package com.github.jxen.svg.api;
  */
 public class SvgException extends RuntimeException {
 
-	private static final long serialVersionUID = 4072429213572700936L;
+  private static final long serialVersionUID = 4072429213572700936L;
 
-	/**
-	 * @param message message
-	 * @param cause   cause
-	 */
-	public SvgException(String message, Throwable cause) {
-		super(message, cause);
-	}
+  /**
+   * Initializes with given values.
+   *
+   * @param message message
+   * @param cause   cause
+   */
+  public SvgException(String message, Throwable cause) {
+    super(message, cause);
+  }
 
-	/**
-	 * @param message message
-	 */
-	public SvgException(String message) {
-		super(message);
-	}
+  /**
+   * Initializes with given value.
+   *
+   * @param message message
+   */
+  public SvgException(String message) {
+    super(message);
+  }
 
-	/**
-	 * @param cause cause
-	 */
-	public SvgException(Throwable cause) {
-		super(cause);
-	}
+  /**
+   * Initializes with given values.
+   *
+   * @param cause cause
+   */
+  public SvgException(Throwable cause) {
+    super(cause);
+  }
 }

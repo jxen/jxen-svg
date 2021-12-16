@@ -11,47 +11,49 @@ import com.github.jxen.svg.api.SvgException;
  */
 public enum Overflow {
 
-	/**
-	 * Visible.
-	 */
-	VISIBLE("visible"),
+  /**
+   * Visible.
+   */
+  VISIBLE("visible"),
 
-	/**
-	 * Hidden.
-	 */
-	HIDDEN("hidden"),
+  /**
+   * Hidden.
+   */
+  HIDDEN("hidden"),
 
-	/**
-	 * Scroll.
-	 */
-	SCROLL("scroll"),
+  /**
+   * Scroll.
+   */
+  SCROLL("scroll"),
 
-	/**
-	 * Auto.
-	 */
-	AUTO("auto");
+  /**
+   * Auto.
+   */
+  AUTO("auto");
 
-	private final String name;
+  private final String name;
 
-	Overflow(String name) {
-		this.name = name;
-	}
+  Overflow(String name) {
+    this.name = name;
+  }
 
-	@Override
-	public String toString() {
-		return name;
-	}
+  @Override
+  public String toString() {
+    return name;
+  }
 
-	/**
-	 * @param value value
-	 * @return parsed object
-	 */
-	public static Overflow parse(String value) {
-		for (Overflow display : values()) {
-			if (display.name.equals(value)) {
-				return display;
-			}
-		}
-		throw new SvgException("Unsupported display type");
-	}
+  /**
+   * Provides instance.
+   *
+   * @param value value
+   * @return parsed object
+   */
+  public static Overflow parse(String value) {
+    for (Overflow display : values()) {
+      if (display.name.equals(value)) {
+        return display;
+      }
+    }
+    throw new SvgException("Unsupported display type");
+  }
 }

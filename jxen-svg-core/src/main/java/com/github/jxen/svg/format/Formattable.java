@@ -9,11 +9,11 @@ package com.github.jxen.svg.format;
  */
 public interface Formattable {
 
-	/**
-	 * Formats object using given format parameter.
-	 *
-	 * @param format format
-	 * @return formatted value
-	 */
-	String format(String format);
+  /**
+   * Formats object using given format parameter.
+   *
+   * @param format format
+   * @return formatted value
+   */
+  String format(String format);
 }

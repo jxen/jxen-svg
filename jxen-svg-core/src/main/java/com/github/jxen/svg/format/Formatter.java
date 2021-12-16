@@ -9,9 +9,11 @@ package com.github.jxen.svg.format;
  */
 public interface Formatter {
 
-	/**
-	 * @param value value
-	 * @return formatter value
-	 */
-	String format(Object value);
+  /**
+   * Formats given object.
+   *
+   * @param value value
+   * @return formatter value
+   */
+  String format(Object value);
 }

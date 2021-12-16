@@ -14,85 +14,101 @@ import com.github.jxen.svg.model.type.ValueType;
  * @since SVG Core 0.1
  */
 @Tag("line")
-public class Line extends Element<Line> {
+public final class Line extends Element<Line> {
 
-	@Attr(name = "x1", type = ValueType.LENGTH)
-	private Length x1;
+  @Attr(name = "x1", type = ValueType.LENGTH)
+  private Length x1;
 
-	@Attr(name = "y1", type = ValueType.LENGTH)
-	private Length y1;
+  @Attr(name = "y1", type = ValueType.LENGTH)
+  private Length y1;
 
-	@Attr(name = "x2", type = ValueType.LENGTH)
-	private Length x2;
+  @Attr(name = "x2", type = ValueType.LENGTH)
+  private Length x2;
 
-	@Attr(name = "y2", type = ValueType.LENGTH)
-	private Length y2;
+  @Attr(name = "y2", type = ValueType.LENGTH)
+  private Length y2;
 
-	/**
-	 * Initializes element.
-	 */
-	public Line() {
-		super(Line.class);
-	}
+  /**
+   * Initializes element.
+   */
+  public Line() {
+    super(Line.class);
+  }
 
-	/**
-	 * @return the x1
-	 */
-	public Length getX1() {
-		return x1;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the x1
+   */
+  public Length getX1() {
+    return x1;
+  }
 
-	/**
-	 * @param x1 the x1 to set
-	 */
-	public void setX1(Length x1) {
-		this.x1 = x1;
-	}
+  /**
+   * Sets the value.
+   *
+   * @param x1 the x1 to set
+   */
+  public void setX1(Length x1) {
+    this.x1 = x1;
+  }
 
-	/**
-	 * @return the y1
-	 */
-	public Length getY1() {
-		return y1;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the y1
+   */
+  public Length getY1() {
+    return y1;
+  }
 
-	/**
-	 * @param y1 the y1 to set
-	 */
-	public void setY1(Length y1) {
-		this.y1 = y1;
-	}
+  /**
+   * Sets the value.
+   *
+   * @param y1 the y1 to set
+   */
+  public void setY1(Length y1) {
+    this.y1 = y1;
+  }
 
-	/**
-	 * @return the x2
-	 */
-	public Length getX2() {
-		return x2;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the x2
+   */
+  public Length getX2() {
+    return x2;
+  }
 
-	/**
-	 * @param x2 the x2 to set
-	 */
-	public void setX2(Length x2) {
-		this.x2 = x2;
-	}
+  /**
+   * Sets the value.
+   *
+   * @param x2 the x2 to set
+   */
+  public void setX2(Length x2) {
+    this.x2 = x2;
+  }
 
-	/**
-	 * @return the y2
-	 */
-	public Length getY2() {
-		return y2;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the y2
+   */
+  public Length getY2() {
+    return y2;
+  }
 
-	/**
-	 * @param y2 the y2 to set
-	 */
-	public void setY2(Length y2) {
-		this.y2 = y2;
-	}
+  /**
+   * Sets the value.
+   *
+   * @param y2 the y2 to set
+   */
+  public void setY2(Length y2) {
+    this.y2 = y2;
+  }
 
-	@Override
-	public void accept(SvgVisitor t) {
-		t.visit(this);
-	}
+  @Override
+  public void accept(SvgVisitor t) {
+    t.visit(this);
+  }
 }

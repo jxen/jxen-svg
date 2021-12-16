@@ -11,15 +11,15 @@ import java.util.List;
 
 class EllipseTransformApplier extends TransformApplier<Ellipse> {
 
-	@Override
-	void transform(Ellipse ellipse, Transform transform) {
-		TranslateFirstDecomposer decomposer = new TranslateFirstDecomposer();
-		TransformDecomposition decomposition = decomposer.decompose(transform);
-		Transform toApply = decomposition.translate();
-		List<Transform> rest = Arrays.asList(decomposition.rotate(), decomposition.skewX(), decomposition.scale());
-		Column v = toApply.toMatrix().multiply(Column.of(ellipse.getCx().getValue(), ellipse.getCy().getValue(), 1));
-		ellipse.setCx(ellipse.getCx().to(Point.from(v).getX()));
-		ellipse.setCy(ellipse.getCy().to(Point.from(v).getY()));
-		ellipse.setTransform(rest);
-	}
+  @Override
+  void transform(Ellipse ellipse, Transform transform) {
+    TranslateFirstDecomposer decomposer = new TranslateFirstDecomposer();
+    TransformDecomposition decomposition = decomposer.decompose(transform);
+    Transform toApply = decomposition.translate();
+    List<Transform> rest = Arrays.asList(decomposition.rotate(), decomposition.skewX(), decomposition.scale());
+    Column v = toApply.toMatrix().multiply(Column.of(ellipse.getCx().getValue(), ellipse.getCy().getValue(), 1));
+    ellipse.setCx(ellipse.getCx().to(Point.from(v).getX()));
+    ellipse.setCy(ellipse.getCy().to(Point.from(v).getY()));
+    ellipse.setTransform(rest);
+  }
 }

@@ -16,68 +16,80 @@ import com.github.jxen.svg.model.type.ValueType;
  * @since SVG Core 0.1
  */
 @Tag("use")
-public class Use extends Element<Use> {
+public final class Use extends Element<Use> {
 
-	@Attr(name = "href", namespace = XLINK_NAMESPACE, type = ValueType.STRING)
-	private String href;
+  @Attr(name = "href", namespace = XLINK_NAMESPACE, type = ValueType.STRING)
+  private String href;
 
-	@Attr(name = "x", type = ValueType.LENGTH)
-	private Length x;
+  @Attr(name = "x", type = ValueType.LENGTH)
+  private Length x;
 
-	@Attr(name = "y", type = ValueType.LENGTH)
-	private Length y;
+  @Attr(name = "y", type = ValueType.LENGTH)
+  private Length y;
 
-	/**
-	 * Initializes element.
-	 */
-	public Use() {
-		super(Use.class);
-	}
+  /**
+   * Initializes element.
+   */
+  public Use() {
+    super(Use.class);
+  }
 
-	/**
-	 * @return the href
-	 */
-	public String getHref() {
-		return href;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the href
+   */
+  public String getHref() {
+    return href;
+  }
 
-	/**
-	 * @param href the href to set
-	 */
-	public void setHref(String href) {
-		this.href = href;
-	}
+  /**
+   * Sets the value.
+   *
+   * @param href the href to set
+   */
+  public void setHref(String href) {
+    this.href = href;
+  }
 
-	/**
-	 * @return the x
-	 */
-	public Length getX() {
-		return x;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the x
+   */
+  public Length getX() {
+    return x;
+  }
 
-	/**
-	 * @param x the x to set
-	 */
-	public void setX(Length x) {
-		this.x = x;
-	}
+  /**
+   * Sets the value.
+   *
+   * @param x the x to set
+   */
+  public void setX(Length x) {
+    this.x = x;
+  }
 
-	/**
-	 * @return the y
-	 */
-	public Length getY() {
-		return y;
-	}
+  /**
+   * Provides the value.
+   *
+   * @return the y
+   */
+  public Length getY() {
+    return y;
+  }
 
-	/**
-	 * @param y the y to set
-	 */
-	public void setY(Length y) {
-		this.y = y;
-	}
+  /**
+   * Sets the value.
+   *
+   * @param y the y to set
+   */
+  public void setY(Length y) {
+    this.y = y;
+  }
 
-	@Override
-	public void accept(SvgVisitor t) {
-		t.visit(this);
-	}
+  @Override
+  public void accept(SvgVisitor t) {
+    t.visit(this);
+  }
 }

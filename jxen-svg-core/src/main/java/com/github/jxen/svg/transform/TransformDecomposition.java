@@ -12,55 +12,67 @@ import java.util.List;
  */
 public abstract class TransformDecomposition {
 
-	private final List<Transform> transforms;
+  private final List<Transform> transforms;
 
-	/**
-	 * @param transforms transforms
-	 */
-	public TransformDecomposition(List<Transform> transforms) {
-		this.transforms = Collections.unmodifiableList(transforms);
-	}
+  /**
+   * Initializes with given values.
+   *
+   * @param transforms transforms
+   */
+  public TransformDecomposition(List<Transform> transforms) {
+    this.transforms = Collections.unmodifiableList(transforms);
+  }
 
-	/**
-	 * @return the transforms
-	 */
-	public List<Transform> getTransforms() {
-		return transforms;
-	}
+  /**
+   * Provides transformations.
+   *
+   * @return the transforms
+   */
+  public final List<Transform> getTransforms() {
+    return transforms;
+  }
 
-	/**
-	 * @return scale part
-	 */
-	public Transform scale() {
-		return transforms.get(scaleIndex());
-	}
+  /**
+   * Provides scale.
+   *
+   * @return scale part
+   */
+  public final Transform scale() {
+    return transforms.get(scaleIndex());
+  }
 
-	abstract int scaleIndex();
+  abstract int scaleIndex();
 
-	/**
-	 * @return skewX part
-	 */
-	public Transform skewX() {
-		return transforms.get(skewXIndex());
-	}
+  /**
+   * Provides skew X.
+   *
+   * @return skewX part
+   */
+  public final Transform skewX() {
+    return transforms.get(skewXIndex());
+  }
 
-	abstract int skewXIndex();
+  abstract int skewXIndex();
 
-	/**
-	 * @return rotate part
-	 */
-	public Transform rotate() {
-		return transforms.get(rotateIndex());
-	}
+  /**
+   * Provides rotate.
+   *
+   * @return rotate part
+   */
+  public final Transform rotate() {
+    return transforms.get(rotateIndex());
+  }
 
-	abstract int rotateIndex();
+  abstract int rotateIndex();
 
-	/**
-	 * @return translate part
-	 */
-	public Transform translate() {
-		return transforms.get(translateIndex());
-	}
+  /**
+   * Provides translate.
+   *
+   * @return translate part
+   */
+  public final Transform translate() {
+    return transforms.get(translateIndex());
+  }
 
-	abstract int translateIndex();
+  abstract int translateIndex();
 }

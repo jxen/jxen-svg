@@ -9,11 +9,11 @@ package com.github.jxen.svg.transform;
  */
 public interface TransformDecomposer {
 
-	/**
-	 * Decompose given transformation.
-	 *
-	 * @param transform transform to be decomposed
-	 * @return decomposition
-	 */
-	TransformDecomposition decompose(Transform transform);
+  /**
+   * Decompose given transformation.
+   *
+   * @param transform transform to be decomposed
+   * @return decomposition
+   */
+  TransformDecomposition decompose(Transform transform);
 }

@@ -16,29 +16,29 @@ import java.util.function.Consumer;
  */
 public class ViewBoxParser implements Parser<ViewBox> {
 
-	@Override
-	public ViewBox parse(String value) {
-		Analyzer analyzer = new Analyzer();
-		new Splitter(value, analyzer).split();
-		final int size = 4;
-		if (analyzer.values.size() != size) {
-			throw new SvgException("Unparsable ViewBox: " + value);
-		}
-		Iterator<Double> it = analyzer.values.iterator();
-		double x = it.next();
-		double y = it.next();
-		double width = it.next();
-		double height = it.next();
-		return new ViewBox(x, y, width, height);
-	}
+  @Override
+  public ViewBox parse(String value) {
+    Analyzer analyzer = new Analyzer();
+    new Splitter(value, analyzer).split();
+    final int size = 4;
+    if (analyzer.values.size() != size) {
+      throw new SvgException("Unparsable ViewBox: " + value);
+    }
+    Iterator<Double> it = analyzer.values.iterator();
+    double x = it.next();
+    double y = it.next();
+    double width = it.next();
+    double height = it.next();
+    return new ViewBox(x, y, width, height);
+  }
 
-	private static class Analyzer implements Consumer<String> {
+  private static class Analyzer implements Consumer<String> {
 
-		private final List<Double> values = new ArrayList<>();
+    private final List<Double> values = new ArrayList<>();
 
-		@Override
-		public void accept(String item) {
-			values.add(Double.parseDouble(item));
-		}
-	}
+    @Override
+    public void accept(String item) {
+      values.add(Double.parseDouble(item));
+    }
+  }
 }

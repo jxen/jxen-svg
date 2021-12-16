@@ -12,18 +12,18 @@ import com.github.jxen.svg.style.Style;
  * @since SVG Core 0.1
  */
 @Tag("metadata")
-public class Metadata extends Element<Metadata> {
+public final class Metadata extends Element<Metadata> {
 
-	/**
-	 * Initializes element.
-	 */
-	public Metadata() {
-		super(Metadata.class);
-		setStyle(Style.getDefault());
-	}
+  /**
+   * Initializes element.
+   */
+  public Metadata() {
+    super(Metadata.class);
+    setStyle(Style.getDefault());
+  }
 
-	@Override
-	public void accept(SvgVisitor t) {
-		t.visit(this);
-	}
+  @Override
+  public void accept(SvgVisitor t) {
+    t.visit(this);
+  }
 }

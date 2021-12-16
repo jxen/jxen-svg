@@ -9,10 +9,12 @@ package com.github.jxen.svg.spi;
  */
 public interface SvgService {
 
-	/**
-	 * @return precision used in calculations
-	 */
-	default double precision() {
-		return Constants.PRECISION;
-	}
+  /**
+   * Provides precision.
+   *
+   * @return precision used in calculations
+   */
+  default double precision() {
+    return Constants.PRECISION;
+  }
 }

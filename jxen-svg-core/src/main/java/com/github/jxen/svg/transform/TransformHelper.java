@@ -7,11 +7,11 @@ import java.util.function.Predicate;
 
 interface TransformHelper extends Predicate<Matrix> {
 
-	Transform create(List<Double> values);
+  Transform create(List<Double> values);
 
-	String toString(Transform transform);
+  String toString(Transform transform);
 
-	default FormatHelper format() {
-		return new FormatHelper("#.##");
-	}
+  default FormatHelper format() {
+    return new FormatHelper("#.##");
+  }
 }

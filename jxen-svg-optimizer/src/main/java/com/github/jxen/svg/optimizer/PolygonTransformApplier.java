@@ -8,13 +8,13 @@ import java.util.List;
 
 class PolygonTransformApplier extends TransformApplier<Polygon> {
 
-	@Override
-	void transform(Polygon polygon, Transform transform) {
-		List<Point> transformed = new ArrayList<>();
-		for (Point p : polygon.getPoints()) {
-			transformed.add(p.transform(transform));
-		}
-		polygon.setPoints(transformed);
-		polygon.setTransform(null);
-	}
+  @Override
+  void transform(Polygon polygon, Transform transform) {
+    List<Point> transformed = new ArrayList<>();
+    for (Point p : polygon.getPoints()) {
+      transformed.add(p.transform(transform));
+    }
+    polygon.setPoints(transformed);
+    polygon.setTransform(null);
+  }
 }

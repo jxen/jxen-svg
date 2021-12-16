@@ -16,13 +16,17 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Tag {
 
-	/**
-	 * @return element name
-	 */
-	String value();
+  /**
+   * Provides value.
+   *
+   * @return element name
+   */
+  String value();
 
-	/**
-	 * @return element namespace
-	 */
-	String namespace() default SvgNamespaces.SVG_NAMESPACE;
+  /**
+   * Provides namespace.
+   *
+   * @return element namespace
+   */
+  String namespace() default SvgNamespaces.SVG_NAMESPACE;
 }

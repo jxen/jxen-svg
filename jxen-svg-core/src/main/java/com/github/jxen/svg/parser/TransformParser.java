@@ -16,41 +16,41 @@ import java.util.function.Consumer;
  */
 public class TransformParser implements Parser<List<Transform>> {
 
-	@Override
-	public List<Transform> parse(String value) {
-		final char left = '(';
-		final char right = ')';
-		List<Transform> transforms = new ArrayList<>();
-		int start = 0;
-		int indexLeft = value.indexOf(left);
-		int indexRight = value.indexOf(right);
-		while (indexLeft >= 0 && indexRight >= 0) {
-			if (indexLeft > indexRight) {
-				throw new SvgException("Unparsable transform: " + value);
-			}
-			final String name = value.substring(start, indexLeft).replaceAll(",", "").trim();
-			Analyzer analyzer = new Analyzer();
-			new Splitter(value.substring(indexLeft + 1, indexRight), analyzer).split();
-			List<Double> values = analyzer.getResult();
-			transforms.add(TransformType.create(name, values));
-			start = indexRight + 1;
-			indexLeft = value.indexOf(left, start);
-			indexRight = value.indexOf(right, start);
-		}
-		return transforms;
-	}
+  @Override
+  public List<Transform> parse(String value) {
+    final char left = '(';
+    final char right = ')';
+    List<Transform> transforms = new ArrayList<>();
+    int start = 0;
+    int indexLeft = value.indexOf(left);
+    int indexRight = value.indexOf(right);
+    while (indexLeft >= 0 && indexRight >= 0) {
+      if (indexLeft > indexRight) {
+        throw new SvgException("Unparsable transform: " + value);
+      }
+      final String name = value.substring(start, indexLeft).replaceAll(",", "").trim();
+      Analyzer analyzer = new Analyzer();
+      new Splitter(value.substring(indexLeft + 1, indexRight), analyzer).split();
+      List<Double> values = analyzer.getResult();
+      transforms.add(TransformType.create(name, values));
+      start = indexRight + 1;
+      indexLeft = value.indexOf(left, start);
+      indexRight = value.indexOf(right, start);
+    }
+    return transforms;
+  }
 
-	private static class Analyzer implements Consumer<String> {
+  private static class Analyzer implements Consumer<String> {
 
-		private final List<Double> values = new ArrayList<>();
+    private final List<Double> values = new ArrayList<>();
 
-		@Override
-		public void accept(String item) {
-			values.add(Double.parseDouble(item));
-		}
+    @Override
+    public void accept(String item) {
+      values.add(Double.parseDouble(item));
+    }
 
-		private List<Double> getResult() {
-			return values;
-		}
-	}
+    private List<Double> getResult() {
+      return values;
+    }
+  }
 }

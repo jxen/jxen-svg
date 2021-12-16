@@ -11,49 +11,49 @@ import java.util.Optional;
 
 class StyleVisitor implements SvgVisitor {
 
-	@Override
-	public void visit(Defs defs) {
-		process(defs);
-		defs.setStyle(null);
-	}
+  @Override
+  public void visit(Defs defs) {
+    process(defs);
+    defs.setStyle(null);
+  }
 
-	@Override
-	public void visit(Desc desc) {
-		desc.setStyle(null);
-	}
+  @Override
+  public void visit(Desc desc) {
+    desc.setStyle(null);
+  }
 
-	@Override
-	public void visit(Metadata metadata) {
-		metadata.setStyle(null);
-	}
+  @Override
+  public void visit(Metadata metadata) {
+    metadata.setStyle(null);
+  }
 
-	@Override
-	public void visit(Title title) {
-		title.setStyle(null);
-	}
+  @Override
+  public void visit(Title title) {
+    title.setStyle(null);
+  }
 
-	@Override
-	public void process(Element<?> element) {
-		element.stream().forEach(c -> c.accept(this));
-		Style style = getStyle(element);
-		Style effective = element.getEffective();
-		Style parent = Optional.ofNullable(element.getParent()).map(Element::getEffective).orElse(Style.getDefault());
-		Style.names().forEach(n -> {
-			Object item = effective.get(n);
-			if (parent.get(n).equals(item)) {
-				style.set(n, null);
-			} else {
-				style.set(n, item);
-			}
-		});
-	}
+  @Override
+  public void process(Element<?> element) {
+    element.stream().forEach(c -> c.accept(this));
+    Style style = getStyle(element);
+    Style effective = element.getEffective();
+    Style parent = Optional.ofNullable(element.getParent()).map(Element::getEffective).orElse(Style.getDefault());
+    Style.names().forEach(n -> {
+      Object item = effective.get(n);
+      if (parent.get(n).equals(item)) {
+        style.set(n, null);
+      } else {
+        style.set(n, item);
+      }
+    });
+  }
 
-	private Style getStyle(Element<?> element) {
-		Style style = element.getStyle();
-		if (style == null) {
-			style = new Style();
-			element.setStyle(style);
-		}
-		return style;
-	}
+  private Style getStyle(Element<?> element) {
+    Style style = element.getStyle();
+    if (style == null) {
+      style = new Style();
+      element.setStyle(style);
+    }
+    return style;
+  }
 }

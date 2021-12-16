@@ -11,42 +11,44 @@ import com.github.jxen.svg.api.SvgException;
  */
 public enum Visibility {
 
-	/**
-	 * Visible.
-	 */
-	VISIBLE("visible"),
+  /**
+   * Visible.
+   */
+  VISIBLE("visible"),
 
-	/**
-	 * Hidden.
-	 */
-	HIDDEN("hidden"),
+  /**
+   * Hidden.
+   */
+  HIDDEN("hidden"),
 
-	/**
-	 * Collapse.
-	 */
-	COLLAPSE("collapse");
+  /**
+   * Collapse.
+   */
+  COLLAPSE("collapse");
 
-	private final String name;
+  private final String name;
 
-	Visibility(String name) {
-		this.name = name;
-	}
+  Visibility(String name) {
+    this.name = name;
+  }
 
-	@Override
-	public String toString() {
-		return name;
-	}
+  @Override
+  public String toString() {
+    return name;
+  }
 
-	/**
-	 * @param value value
-	 * @return parsed object
-	 */
-	public static Visibility parse(String value) {
-		for (Visibility display : values()) {
-			if (display.name.equals(value)) {
-				return display;
-			}
-		}
-		throw new SvgException("Unsupported display type");
-	}
+  /**
+   * Provides instance.
+   *
+   * @param value value
+   * @return parsed object
+   */
+  public static Visibility parse(String value) {
+    for (Visibility display : values()) {
+      if (display.name.equals(value)) {
+        return display;
+      }
+    }
+    throw new SvgException("Unsupported display type");
+  }
 }

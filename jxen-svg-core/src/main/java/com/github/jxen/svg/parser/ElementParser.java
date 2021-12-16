@@ -30,83 +30,84 @@ import org.apache.logging.log4j.Logger;
  */
 public class ElementParser {
 
-	private static final Logger LOG = LogManager.getLogger(ElementParser.class);
+  private static final Logger LOG = LogManager.getLogger(ElementParser.class);
 
-	private static final Set<String> IGNORED_NAMESPACES = Stream
-			.of("http://www.inkscape.org/namespaces/inkscape",
-					"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd")
-			.collect(Collectors.toSet());
+  private static final Set<String> IGNORED_NAMESPACES = Stream
+      .of("http://www.inkscape.org/namespaces/inkscape", "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd")
+      .collect(Collectors.toSet());
 
-	private final Constructor<? extends Element<?>> constructor;
+  private final Constructor<? extends Element<?>> constructor;
 
-	private final Map<String, AttributeHandler> handlers = new HashMap<>();
+  private final Map<String, AttributeHandler> handlers = new HashMap<>();
 
-	/**
-	 * @param constructor object constructor
-	 */
-	public ElementParser(Constructor<? extends Element<?>> constructor) {
-		this.constructor = constructor;
-		processAttributes(constructor.getDeclaringClass());
-	}
+  /**
+   * Initializes with given values.
+   *
+   * @param constructor object constructor
+   */
+  public ElementParser(Constructor<? extends Element<?>> constructor) {
+    this.constructor = constructor;
+    processAttributes(constructor.getDeclaringClass());
+  }
 
-	private void processAttributes(Class<?> classType) {
-		if (classType != Object.class) {
-			processAttributes(classType.getSuperclass());
-		}
-		for (Field field : classType.getDeclaredFields()) {
-			Attr attr = field.getAnnotation(Attr.class);
-			if (attr == null) {
-				continue;
-			}
-			handlers.put(attr.name(), (o, a) -> set(o, field, a, attr.type()));
-		}
-	}
+  private void processAttributes(Class<?> classType) {
+    if (classType != Object.class) {
+      processAttributes(classType.getSuperclass());
+    }
+    for (Field field : classType.getDeclaredFields()) {
+      Attr attr = field.getAnnotation(Attr.class);
+      if (attr == null) {
+        continue;
+      }
+      handlers.put(attr.name(), (o, a) -> set(o, field, a, attr.type()));
+    }
+  }
 
-	private void set(Object object, Field field, Attribute attribute, ValueType type) {
-		Object value = type.parse(attribute.getValue());
-		// TODO Implement value range checking
-		try {
-			field.setAccessible(true);
-			field.set(object, value);
-		} catch (IllegalAccessException e) {
-			throw new SvgException(e);
-		}
-	}
+  private void set(Object object, Field field, Attribute attribute, ValueType type) {
+    Object value = type.parse(attribute.getValue());
+    // TODO Implement value range checking
+    try {
+      field.setAccessible(true);
+      field.set(object, value);
+    } catch (IllegalAccessException e) {
+      throw new SvgException(e);
+    }
+  }
 
-	/**
-	 * Parses given XML element.
-	 *
-	 * @param startElement {@link StartElement} to be parsed
-	 * @return parsed object
-	 */
-	public Element<?> parse(StartElement startElement) {
-		try {
-			Element<?> element = constructor.newInstance();
-			@SuppressWarnings("unchecked")
-			Iterator<Attribute> attributes = startElement.getAttributes();
-			while (attributes.hasNext()) {
-				Attribute attribute = attributes.next();
-				AttributeHandler handler = handlers.get(attribute.getName().getLocalPart());
-				if (Objects.nonNull(handler)) {
-					handler.handle(element, attribute);
-				} else {
-					String name = attribute.getName().getLocalPart();
-					if (Style.isNameSupported(name)) {
-						Style style = Optional.ofNullable(element.getStyle()).orElse(Style.getDefault());
-						style.parseItem(name, attribute.getValue());
-						element.setStyle(style);
-					} else if (!IGNORED_NAMESPACES.contains(attribute.getName().getNamespaceURI())) {
-						LOG.warn(() -> "Unknown attribute: " + attribute);
-					}
-				}
-			}
-			return element;
-		} catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
-			throw new SvgException(e);
-		}
-	}
+  /**
+   * Parses given XML element.
+   *
+   * @param startElement {@link StartElement} to be parsed
+   * @return parsed object
+   */
+  public final Element<?> parse(StartElement startElement) {
+    try {
+      Element<?> element = constructor.newInstance();
+      @SuppressWarnings("unchecked")
+      Iterator<Attribute> attributes = startElement.getAttributes();
+      while (attributes.hasNext()) {
+        Attribute attribute = attributes.next();
+        AttributeHandler handler = handlers.get(attribute.getName().getLocalPart());
+        if (Objects.nonNull(handler)) {
+          handler.handle(element, attribute);
+        } else {
+          String name = attribute.getName().getLocalPart();
+          if (Style.isNameSupported(name)) {
+            Style style = Optional.ofNullable(element.getStyle()).orElse(Style.getDefault());
+            style.parseItem(name, attribute.getValue());
+            element.setStyle(style);
+          } else if (!IGNORED_NAMESPACES.contains(attribute.getName().getNamespaceURI())) {
+            LOG.warn(() -> "Unknown attribute: " + attribute);
+          }
+        }
+      }
+      return element;
+    } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+      throw new SvgException(e);
+    }
+  }
 
-	private interface AttributeHandler {
-		void handle(Object object, Attribute attribute);
-	}
+  private interface AttributeHandler {
+    void handle(Object object, Attribute attribute);
+  }
 }

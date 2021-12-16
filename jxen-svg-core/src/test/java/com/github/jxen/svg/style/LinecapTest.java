@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Test;
 
 class LinecapTest {
 
-	@Test
-	void testParse() {
-		assertEquals(Linecap.ROUND, Linecap.parse("round"));
-	}
+  @Test
+  void testParse() {
+    assertEquals(Linecap.ROUND, Linecap.parse("round"));
+  }
 
-	@Test
-	void testParseFailure() {
-		assertThrows(SvgException.class, () -> Linecap.parse("error"));
-	}
+  @Test
+  void testParseFailure() {
+    assertThrows(SvgException.class, () -> Linecap.parse("error"));
+  }
 }
